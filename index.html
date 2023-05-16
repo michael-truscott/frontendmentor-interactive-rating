@@ -11,12 +11,6 @@
   <link rel="stylesheet" href="style.css">
   
   <title>Frontend Mentor | Interactive rating component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
@@ -43,7 +37,7 @@
 
     <div class="card thank-you-screen hidden">
       <div class="flex-center-column align-text-center">
-        <img class="illustration" src="images/illustration-thank-you.svg" alt="Survey Illustration">
+        <img src="images/illustration-thank-you.svg" alt="Survey Illustration">
         <div class="selection">
           <p>You selected <span>1</span> out of 5</p>
         </div>
@@ -53,11 +47,6 @@
         </div>
     </div>
   </main>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 
   <script type="text/javascript">
     const buttons = Array.from(document.getElementsByClassName("button-group")[0].children);
@@ -75,7 +64,7 @@
     submitButton.addEventListener("click", (event) => {
       const ratingButton = document.getElementsByClassName("circle clickable selected")[0];
       if (!ratingButton) {
-        return; // shouldn't be possible but check in case
+        return; // shouldn't be possible unless user removes selection with devtools
       }
       const rating = Array.from(ratingButton.parentElement.children).indexOf(ratingButton) + 1;
       document.querySelector(".selection span").innerHTML = rating;
