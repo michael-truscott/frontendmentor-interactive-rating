@@ -1,0 +1,125 @@
+* {
+    font-family: 'Overpass', sans-serif;
+}
+
+body {
+    background-color: hsl(216, 12%, 8%);
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+.align-text-center {
+    text-align: center;
+}
+
+.flex-center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: radial-gradient(circle at center top, hsl(213, 19%, 18%) 0, hsl(216, 12%, 8%) 120%);
+    max-width: 412px;
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 25px;
+    margin: 0 32px;
+}
+
+.card h1 {
+    color: hsl(0, 0%, 100%);
+    font-size: 1.7rem;
+}
+
+.card p {
+    color: hsl(216, 12%, 54%);
+    font-size: 0.95rem;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: hsl(213, 19%, 18%);
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.circle.clickable.selected {
+    background-color: hsl(217, 12%, 63%);
+}
+
+.circle.clickable.selected p {
+    color:hsl(0, 0%, 100%);
+}
+
+.circle.clickable:hover {
+    background-color: hsl(25, 97%, 53%);
+}
+
+.circle.clickable:hover p {
+    color:hsl(0, 0%, 100%);
+}
+
+.circle img {
+    width: 16px;
+    height: 16px;
+}
+
+.circle p {
+    color: hsl(216, 12%, 54%);
+    font-weight: bold;
+    margin: 0;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 0;
+}
+
+.btn-submit {
+    padding: 14px 0;
+    border-radius: 25px;
+    background-color: hsl(25, 97%, 53%);
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+
+.btn-submit:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(25, 97%, 53%);
+}
+
+/* Thank you box */
+.selection {
+    padding: 8px 20px;
+    background-color: hsl(213, 19%, 18%);
+    border-radius: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.selection p {
+    color: hsl(25, 97%, 53%);
+    margin: 0;
+}

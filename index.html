@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main class="flex-center-column">
+    <div class="card rating-screen">
+      <div class="circle">
+        <img src="images/icon-star.svg" alt="Star Icon">
+      </div>
+
+      <h1>How did we do?</h1>
+      <p>Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!</p>
+
+      <div class="button-group">
+        <div class="circle clickable"><p>1</p></div>
+        <div class="circle clickable"><p>2</p></div>
+        <div class="circle clickable"><p>3</p></div>
+        <div class="circle clickable"><p>4</p></div>
+        <div class="circle clickable selected"><p>5</p></div>
+      </div>
+
+      <div class="btn-submit clickable">Submit</div>
+    </div>
+
+    <div class="card thank-you-screen hidden">
+      <div class="flex-center-column align-text-center">
+        <img class="illustration" src="images/illustration-thank-you.svg" alt="Survey Illustration">
+        <div class="selection">
+          <p>You selected <span>1</span> out of 5</p>
+        </div>
+
+        <h1>Thank you!</h1>
+        <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
+        </div>
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script type="text/javascript">
+    const buttons = Array.from(document.getElementsByClassName("button-group")[0].children);
+    buttons.forEach((button) => {
+      console.log(button);
+      button.addEventListener("click", (event) => {
+        buttons.forEach((b) => {
+          b.classList.remove("selected");
+        });
+        button.classList.add("selected");
+      });
+    });
+
+    const submitButton = document.getElementsByClassName("btn-submit")[0];
+    submitButton.addEventListener("click", (event) => {
+      const ratingButton = document.getElementsByClassName("circle clickable selected")[0];
+      if (!ratingButton) {
+        return; // shouldn't be possible but check in case
+      }
+      const rating = Array.from(ratingButton.parentElement.children).indexOf(ratingButton) + 1;
+      document.querySelector(".selection span").innerHTML = rating;
+
+      document.getElementsByClassName("rating-screen")[0].classList.add("hidden");
+      document.getElementsByClassName("thank-you-screen")[0].classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
