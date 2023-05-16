@@ -51,7 +51,6 @@
   <script>
     const buttons = Array.from(document.getElementsByClassName("button-group")[0].children);
     buttons.forEach((button) => {
-      console.log(button);
       button.addEventListener("click", (event) => {
         buttons.forEach((b) => {
           b.classList.remove("selected");
